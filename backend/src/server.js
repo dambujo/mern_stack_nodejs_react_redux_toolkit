@@ -2,7 +2,7 @@ import express from 'express';
 //const dotenv = require('dotenv').config();
 import 'dotenv/config';
 import v1Router from './v1/routes/index.js';
-//import errorHandler from './middleware/errorMiddleware.js';
+import errorHandler from './middleware/errorMiddleware.js';
 import colors from 'colors';
 import connectDB from './database/db.js';
 
@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use('/', v1Router);
-//app.use(errorHandler);
+app.use(errorHandler);
 
 app.listen(port, () =>
   console.log(`Backend Server is running on port ${port}`),
