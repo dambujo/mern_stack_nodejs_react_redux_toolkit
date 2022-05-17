@@ -3,8 +3,12 @@ import express from 'express';
 import 'dotenv/config';
 import v1Router from './v1/routes/index.js';
 //import errorHandler from './middleware/errorMiddleware.js';
+import colors from 'colors';
+import connectDB from './database/db.js';
 
 const port = process.env.API_PORT || 5000;
+
+connectDB();
 
 const app = express();
 
